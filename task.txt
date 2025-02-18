@@ -1,0 +1,23 @@
+1)
+with actual as (
+  select item_id, max(update_date) as update_date 
+  from items
+  group by item_id)
+
+select * from items  
+join actual 
+on items.item_id = actual.item_id 
+and items.update_date = actual.update_date
+WHERE items.update_date >= '2020-06-01'
+
+2)
+with actual as (
+  select item_id, max(update_date) as update_date 
+  from items
+  group by item_id)
+
+select * from items  
+join actual 
+on items.item_id = actual.item_id 
+and items.update_date = actual.update_date
+WHERE items.price >= 3
