@@ -5,7 +5,7 @@ with actual as (
   WHERE update_date >= '2020-06-01'
   group by item_id
 )
-
+  
 select * from items  
 join actual 
 on items.item_id = actual.item_id 
