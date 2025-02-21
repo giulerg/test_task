@@ -35,3 +35,19 @@ from
     where user_id = 1 and order_date >= update_date
   ) 
 where n = 1
+4)
+select 
+  sum(price) 
+from 
+  (
+    select 
+      items.item_id, items.name,  items.price, items.update_date, orders.order_date, 
+      ROW_NUMBER() over (
+        partition by items.item_id,  order_id order by update_date desc) as n, 
+      orders.order_id 
+    from 
+      items 
+      join orders on items.item_id = orders.item_id 
+    where  order_date<='2020-05-01' and order_date >= update_date
+  ) 
+where n = 1
