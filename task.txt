@@ -96,3 +96,11 @@ hub_items(id, created_at)
 satellit_orders (id, order_id, created_at, **остальные доп. поля)
 satellit_items (id, item_id, created_at, **остальные доп. поля (price и т.д.)
 satellit_users (id, user_id, created_at, **остальные доп. поля (name и т.д.)
+
+link_order_item (id, order_id, item_id, created_at) - таблица связи заказа и товара
+link_user_order (id, user_id, order_id, created_at) - таблица связи покупателя и заказа
+
+3) Можно использовать для этого pit-таблицы, которые в определенные промежутки времени, джобами сохраняют у себя актуальные данные с таблиц по дате добавления. И для извлечения актуальных данных можно будет обращаться к этой таблице
+Н-р: 
+pit_orders (id, order_id, item_id, last_price, created_at)
+
