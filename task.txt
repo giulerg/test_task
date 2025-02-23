@@ -104,3 +104,4 @@ link_user_order (id, user_id, order_id, created_at) - таблица связи 
 Н-р: 
 pit_orders (id, order_id, item_id, last_price, created_at)
 
+4) Для оптимизации обязательно выставляем индексы на id, а также используем партиции по дате создания
